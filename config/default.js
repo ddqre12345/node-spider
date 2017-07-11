@@ -1,9 +1,15 @@
+'use strict';
+
 module.exports = {
-  port: 3000,
-  session: {
-    secret: 'spider',
-    key: 'spider',
-    maxAge: 2592000000
-  },
-  mongodb: 'mongodb://localhost:12345/spider'
-};
+	port: 3000,
+	url: 'mongodb://localhost:12345/spider',
+	session: {
+		name: 'SID',
+		secret: 'SID',
+		cookie: {
+			httpOnly: true,
+		    secure:   false,
+		    maxAge:   365 * 24 * 60 * 60 * 1000,
+		}
+	}
+}

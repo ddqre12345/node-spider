@@ -55,3 +55,16 @@
     3. 停止爬取：`POST /api/spider/:siteId/pause`
     4. 统计爬取信息：`GET /api/statistics/:siteId`
     5. 查看单条爬取信息内容：`GET /api/statistics/:siteId`
+
+
+
+#### Mongoose 模型提供了 find, findOne, 和 findById 方法用于文档查询。
+> Model.find
+Model.find(query, fields, options, callback)// fields 和 options 都是可选参数
+Model.find({'csser.com':5},function(err, docs){// docs 是查询的结果数组 });
+> Model.findOne
+与 Model.find 相同，但只返回单个文档
+Model.findOne({ age:5},function(err, doc){// doc 是单个文档});
+> Model.findById
+与 findOne 相同，但它接收文档的 _id 作为参数，返回单个文档。_id 可以是字符串或 ObjectId 对象。
+Model.findById(obj._id,function(err, doc){// doc 是单个文档});
