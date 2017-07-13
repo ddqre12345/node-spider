@@ -45,13 +45,12 @@ ep.after('new_html', urls.length, (news => {
           newList.push(news2);
         });
       });
-      Site.findOne((err, data) => {
-        if (!data) {
-          newList.forEach(item => {
+      newList.forEach(item => {
           	Site.create(item)
           });
-        }
-      })
-      console.log('final:');
-      console.log(newList);
+      var query = Site.find({});
+          query.exec(function(err,res){
+          //如果err==null，则person就能取到数据
+          console.log(res);
+      });
     }));
